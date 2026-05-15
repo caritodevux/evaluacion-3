@@ -1,5 +1,4 @@
 import { useEffect, useMemo, useState } from "react";
-import "./App.css";
 import Header from "./components/Header";
 import SearchBar from "./components/SearchBar";
 import CourseList from "./components/CourseList";
@@ -44,19 +43,25 @@ return;
 setFavorites([...favorites, course]);
 };
 return (
-<main className="app">
+<main className="container mt-5 mb-5">
 <Header />
-<section className="summary">
-<p>Total de cursos: {courses.length}</p>
-<p>Favoritos: {favorites.length}</p>
+<section className="row mb-4">
+<div className="col-12">
+<div className="alert alert-info d-inline-block">
+<strong>Total de cursos:</strong> {courses.length}
+</div>
+<div className="alert alert-success d-inline-block ms-2">
+<strong>Favoritos:</strong> {favorites.length}
+</div>
+</div>
 </section>
 <SearchBar searchTerm={searchTerm} onSearchChange={setSearchTerm}
 />
-{loading && <p className="message">Cargando cursos...</p>}
+{loading && <p className="alert alert-warning mt-3">Cargando cursos...</p>}
 {error && (
-<div className="error">
+<div className="alert alert-danger mt-3">
 <p>{error}</p>
-<button type="button" onClick={loadCourses}>
+<button type="button" className="btn btn-warning" onClick={loadCourses}>
 Reintentar
 </button>
 </div>
