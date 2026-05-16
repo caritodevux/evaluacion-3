@@ -8,6 +8,7 @@ function App() {
 const [courses, setCourses] = useState([]);
 const [searchTerm, setSearchTerm] = useState("");
 const [selectedTeacher, setSelectedTeacher] = useState("");
+	const [darkMode, setDarkMode] = useLocalStorage("darkMode", false);
 const [favorites, setFavorites] = useLocalStorage("favoriteCourses", []);
 const [loading, setLoading] = useState(true);
 const [error, setError] = useState("");
@@ -41,6 +42,18 @@ setLoading(false);
 			mounted = false;
 		};
 	}, []);
+
+	useEffect(() => {
+		try {
+			if (darkMode) {
+				document.body.classList.add("dark-mode");
+			} else {
+				document.body.classList.remove("dark-mode");
+			}
+		} catch (err) {
+			console.error("No se pudo aplicar el modo oscuro:", err);
+		}
+	}, [darkMode]);
 const teacherIds = useMemo(() => {
 	return Array.from(new Set(courses.map((c) => String(c.teacherId)))).sort();
 }, [courses]);
@@ -74,7 +87,7 @@ setFavorites([...favorites, course]);
 };
 return (
 <main className="container mt-5 mb-5">
-<Header />
+	<Header darkMode={darkMode} onToggleDarkMode={setDarkMode} />
 <section className="row mb-4">
 <div className="col-12">
 <div className="alert alert-info d-inline-block">

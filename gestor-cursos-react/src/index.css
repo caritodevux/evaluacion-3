@@ -2,7 +2,7 @@
 body {
   background-color: #f8f9fa;
 }
-}
+
 
 body {
   margin: 0;
@@ -62,4 +62,34 @@ code {
   line-height: 135%;
   padding: 4px 8px;
   background: var(--code-bg);
+}
+
+/* Dark mode styles */
+.dark-mode {
+  background-color: #0b1220;
+  color: #e5e7eb;
+}
+.dark-mode .card {
+  background-color: #111827;
+  color: #e5e7eb;
+  border-color: #374151;
+}
+.dark-mode .card .form-control,
+.dark-mode .form-select {
+  background-color: #0f1724;
+  color: #e5e7eb;
+  border-color: #374151;
+}
+.dark-mode .alert {
+  background-color: #0f1724;
+  color: #e5e7eb;
+  border-color: #374151;
+}
+.dark-mode .badge.bg-light {
+  background-color: #374151 !important;
+  color: #e5e7eb !important;
+}
+.dark-mode .btn-outline-primary {
+  color: #e5e7eb;
+  border-color: #374151;
 }
