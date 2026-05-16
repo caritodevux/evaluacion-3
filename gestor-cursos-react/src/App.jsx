@@ -45,6 +45,14 @@ const teacherIds = useMemo(() => {
 	return Array.from(new Set(courses.map((c) => String(c.teacherId)))).sort();
 }, [courses]);
 
+const favoritesCountByTeacher = useMemo(() => {
+	return favorites.reduce((acc, course) => {
+		const id = String(course.teacherId);
+		acc[id] = (acc[id] || 0) + 1;
+		return acc;
+	}, {});
+}, [favorites]);
+
 const filteredCourses = useMemo(() => {
 	const normalizedSearch = searchTerm.toLowerCase().trim();
 	return courses.filter((course) => {
@@ -77,6 +85,29 @@ return (
 </div>
 </div>
 </section>
+			<section className="mb-3">
+				<div className="d-flex flex-wrap align-items-center gap-2">
+					<button
+						type="button"
+						className={"btn btn-sm " + (selectedTeacher === "" ? "btn-primary" : "btn-outline-primary")}
+						onClick={() => setSelectedTeacher("")}
+					>
+						Todos
+						<span className="badge bg-light text-dark ms-2">{favorites.length}</span>
+					</button>
+					{teacherIds.map((id) => (
+						<button
+							key={id}
+							type="button"
+							className={"btn btn-sm " + (selectedTeacher === id ? "btn-primary" : "btn-outline-primary")}
+							onClick={() => setSelectedTeacher(id)}
+						>
+							Docente {id}
+							<span className="badge bg-light text-dark ms-2">{favoritesCountByTeacher[id] || 0}</span>
+						</button>
+					))}
+				</div>
+			</section>
 			<SearchBar
 				searchTerm={searchTerm}
 				onSearchChange={setSearchTerm}
