@@ -93,3 +93,72 @@ code {
   color: #e5e7eb;
   border-color: #374151;
 }
+
+/* Contrast improvements for both modes */
+/* Light mode: make primary buttons more prominent and inputs clearer */
+.btn-primary {
+  background-color: #0b5ed7; /* slightly darker than default */
+  border-color: #0a58ca;
+  color: #ffffff;
+}
+.btn-primary:hover, .btn-primary:focus {
+  background-color: #084ea8;
+  border-color: #084ea8;
+}
+.btn-outline-primary {
+  color: #0b5ed7;
+  border-color: #0b5ed7;
+}
+.btn-outline-primary:hover, .btn-outline-primary:focus {
+  background-color: rgba(11,94,215,0.08);
+}
+
+.form-control:focus, .form-select:focus {
+  border-color: #0b5ed7;
+  box-shadow: 0 0 0 0.2rem rgba(11,94,215,0.25);
+}
+
+.alert {
+  border-left-width: 4px;
+  border-left-style: solid;
+  border-left-color: rgba(11,94,215,0.6);
+}
+
+.badge.bg-light {
+  background-color: #f1f5f9 !important;
+  color: #0f1724 !important;
+}
+
+/* Dark-mode specific overrides for interactive elements */
+.dark-mode .btn-primary {
+  background-color: #2563eb;
+  border-color: #1e40af;
+  color: #ffffff;
+}
+.dark-mode .btn-primary:hover, .dark-mode .btn-primary:focus {
+  background-color: #1e3a8a;
+  border-color: #1e3a8a;
+}
+.dark-mode .btn-outline-primary {
+  color: #bfdbfe;
+  border-color: #374151;
+}
+.dark-mode .form-control:focus, .dark-mode .form-select:focus {
+  border-color: #60a5fa;
+  box-shadow: 0 0 0 0.2rem rgba(96,165,250,0.15);
+}
+
+/* Placeholder contrast improvements */
+.card .form-control::placeholder,
+.form-control::placeholder,
+.form-select::placeholder {
+  color: #6b7280; /* gray-500, good contrast on light backgrounds */
+  opacity: 1; /* ensure consistent visibility across browsers */
+}
+
+.dark-mode .card .form-control::placeholder,
+.dark-mode .form-control::placeholder,
+.dark-mode .form-select::placeholder {
+  color: #9ca3af; /* lighter gray for dark backgrounds */
+  opacity: 1;
+}
