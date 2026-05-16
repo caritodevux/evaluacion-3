@@ -2,5 +2,5 @@ projectKey=gestor-cursos-react
 serverUrl=http://localhost:9000
 serverVersion=26.5.0.122743
 dashboardUrl=http://localhost:9000/dashboard?id=gestor-cursos-react
-ceTaskId=cacb20b2-45d2-4e78-8242-8e8349ac8378
-ceTaskUrl=http://localhost:9000/api/ce/task?id=cacb20b2-45d2-4e78-8242-8e8349ac8378
+ceTaskId=096f5a87-abfc-4732-94c7-fad1cd64a80d
+ceTaskUrl=http://localhost:9000/api/ce/task?id=096f5a87-abfc-4732-94c7-fad1cd64a80d

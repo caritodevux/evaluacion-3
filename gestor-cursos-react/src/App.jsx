@@ -55,7 +55,7 @@ setLoading(false);
 		}
 	}, [darkMode]);
 const teacherIds = useMemo(() => {
-	return Array.from(new Set(courses.map((c) => String(c.teacherId)))).sort();
+	return Array.from(new Set(courses.map((c) => String(c.teacherId)))).sort((a, b) => a.localeCompare(b));
 }, [courses]);
 
 const favoritesCountByTeacher = useMemo(() => {
@@ -105,8 +105,8 @@ return (
 						className={"btn btn-sm " + (selectedTeacher === "" ? "btn-primary" : "btn-outline-primary")}
 						onClick={() => setSelectedTeacher("")}
 					>
-						Todos
-						<span className="badge bg-light text-dark ms-2">{favorites.length}</span>
+							Todos{" "}
+							<span className="badge bg-light text-dark ms-2">{favorites.length}</span>
 					</button>
 					{teacherIds.map((id) => (
 						<button
@@ -115,8 +115,8 @@ return (
 							className={"btn btn-sm " + (selectedTeacher === id ? "btn-primary" : "btn-outline-primary")}
 							onClick={() => setSelectedTeacher(id)}
 						>
-							Docente {id}
-							<span className="badge bg-light text-dark ms-2">{favoritesCountByTeacher[id] || 0}</span>
+								Docente {id}{" "}
+								<span className="badge bg-light text-dark ms-2">{favoritesCountByTeacher[id] || 0}</span>
 						</button>
 					))}
 				</div>

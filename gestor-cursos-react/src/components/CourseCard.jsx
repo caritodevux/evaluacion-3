@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import { sanitizeText } from "../utils/sanitize";
 const CourseCard = ({ course, isFavorite, onToggleFavorite }) => {
 const safeTitle = sanitizeText(course.title);
@@ -20,3 +21,14 @@ className={isFavorite ? "btn btn-danger w-100" : "btn btn-primary w-100"}
 );
 };
 export default CourseCard;
+
+CourseCard.propTypes = {
+	course: PropTypes.shape({
+		id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+		title: PropTypes.string.isRequired,
+		description: PropTypes.string.isRequired,
+		teacherId: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+	}).isRequired,
+	isFavorite: PropTypes.bool.isRequired,
+	onToggleFavorite: PropTypes.func.isRequired,
+};

@@ -1,10 +1,6 @@
 /* Bootstrap proporciona la mayoría de los estilos */
 body {
   background-color: #f8f9fa;
-}
-
-
-body {
   margin: 0;
 }
 
@@ -138,10 +134,6 @@ code {
 .dark-mode .btn-primary:hover, .dark-mode .btn-primary:focus {
   background-color: #1e3a8a;
   border-color: #1e3a8a;
-}
-.dark-mode .btn-outline-primary {
-  color: #bfdbfe;
-  border-color: #374151;
 }
 .dark-mode .form-control:focus, .dark-mode .form-select:focus {
   border-color: #60a5fa;

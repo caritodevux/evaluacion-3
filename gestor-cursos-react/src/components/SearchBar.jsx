@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 const SearchBar = ({ searchTerm, onSearchChange, teacherIds = [], selectedTeacher, onTeacherChange }) => {
 	return (
 		<div className="card mb-4">
@@ -30,3 +32,11 @@ const SearchBar = ({ searchTerm, onSearchChange, teacherIds = [], selectedTeache
 	);
 };
 export default SearchBar;
+
+SearchBar.propTypes = {
+	searchTerm: PropTypes.string.isRequired,
+	onSearchChange: PropTypes.func.isRequired,
+	teacherIds: PropTypes.arrayOf(PropTypes.string),
+	selectedTeacher: PropTypes.string.isRequired,
+	onTeacherChange: PropTypes.func.isRequired,
+};

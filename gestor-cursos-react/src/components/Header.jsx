@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 const Header = ({ darkMode, onToggleDarkMode }) => {
 	return (
 		<header className="mb-4">
@@ -23,3 +25,8 @@ const Header = ({ darkMode, onToggleDarkMode }) => {
 	);
 };
 export default Header;
+
+Header.propTypes = {
+	darkMode: PropTypes.bool.isRequired,
+	onToggleDarkMode: PropTypes.func.isRequired,
+};
