@@ -10,7 +10,7 @@ description: item.body,
 teacherId: item.userId,
 }));
 } catch (error) {
-console.error("Error al obtener los cursos:", error);
-throw new Error("No fue posible cargar los cursos.");
+	console.error("Error al obtener los cursos:", error);
+	throw new Error("No fue posible cargar los cursos.", { cause: error });
 }
 };
